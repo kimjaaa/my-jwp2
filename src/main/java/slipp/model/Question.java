@@ -17,14 +17,18 @@ import javax.persistence.OrderBy;
 
 import org.hibernate.annotations.Where;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity
 public class Question {
 	@Id
 	@GeneratedValue
+	@JsonProperty
 	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(foreignKey = @ForeignKey(name = "fk_question_writer"))
+	@JsonProperty
 	private User writer;
 	
 	@Column(length = 100, nullable = false)
